@@ -1,0 +1,21 @@
+@using Sitecore.Feature.Identity
+@using Sitecore.Feature.Identity.Repositories
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
+@using Sitecore.Links
+@model Sitecore.Mvc.Presentation.RenderingModel
+
+
+@{
+    var identity = IdentityRepository.Get(Model.Item);
+    if (identity == null)
+    {
+        return;
+    }
+
+    var homeUrl = Sitecore.Context.Site?.GetStartItem()?.Url() ?? "/";
+    var logoField = Model.Item[Templates.Identity.Fields.Logo];
+    var style = string.IsNullOrEmpty(logoField) ? "" : $"style=\"background-image:url({logoField})\"";
+}
+
+<a href="@homeUrl" @style></a>
+@*@Html.Sitecore().ImageField(Templates.Identity.Fields.Logo, identity, mh: 50, disableWebEditing:true)*@

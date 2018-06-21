@@ -1,0 +1,21 @@
+@using Sitecore.Feature.Identity
+@using Sitecore.Feature.Identity.Repositories
+@using Sitecore.Foundation.SitecoreExtensions.Extensions
+
+@model Sitecore.Mvc.Presentation.RenderingModel
+
+@{
+    var identity = IdentityRepository.Get(Model.Item);
+    if (identity == null)
+    {
+        return;
+    }
+
+    var favicon = identity.ImageUrl(Templates.Identity.Fields.Favicon);
+    if (string.IsNullOrEmpty(favicon))
+    {
+        return;
+    }
+}
+
+<link rel="icon" href="@favicon" type="image/png" />
