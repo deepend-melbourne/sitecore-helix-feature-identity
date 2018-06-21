@@ -1,6 +1,5 @@
-@using Sitecore.Feature.Identity
+@using Sitecore.Feature.Identity.Models
 @using Sitecore.Feature.Identity.Repositories
-@using Sitecore.Foundation.SitecoreExtensions.Extensions
 
 @model Sitecore.Mvc.Presentation.RenderingModel
 
@@ -11,7 +10,7 @@
         return;
     }
 
-    var favicon = identity.ImageUrl(Templates.Identity.Fields.Favicon);
+    var favicon = identity.Favicon?.Src;
     if (string.IsNullOrEmpty(favicon))
     {
         return;

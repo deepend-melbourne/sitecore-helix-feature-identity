@@ -9,6 +9,9 @@ namespace Sitecore.Feature.Identity.Models
         [SitecoreField(FieldId = Templates.Identity.Fields_String.Logo)]
         Image Logo { get; set; }
 
+        [SitecoreField(FieldId = Templates.Identity.Fields_String.Favicon)]
+        Image Favicon { get; set; }
+
         [SitecoreField(FieldId = Templates.Identity.Fields_String.LogoTagLine)]
         string LogoTagLine { get; set; }
 
