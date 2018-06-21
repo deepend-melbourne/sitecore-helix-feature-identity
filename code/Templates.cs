@@ -1,7 +1,7 @@
+using Sitecore.Data;
+
 namespace Sitecore.Feature.Identity
 {
-    using Sitecore.Data;
-
     public struct Templates
     {
         public struct Identity
